@@ -10,6 +10,7 @@ setRoot(appRoot);
 
 registerAllRoutes();
 const basePath = getBasePath();
+let translationDepth = 0;
 
 const initialPath = window.location.pathname;
 const normalizedInitialPath = normalizePath(initialPath);
@@ -205,8 +206,6 @@ function preloadRemainingLanguages(currentLanguage) {
     });
   });
 }
-
-let translationDepth = 0;
 
 function beginTranslation() {
   translationDepth += 1;
