@@ -2,9 +2,18 @@ const routes = new Map();
 let notFoundRoute = null;
 let currentPath = "/";
 let rootElement = null;
+let basePath = detectBasePath();
 
 export function setRoot(element) {
   rootElement = element;
+}
+
+export function getBasePath() {
+  return basePath;
+}
+
+export function setBasePath(path) {
+  basePath = normalizeBasePath(path);
 }
 
 export function registerRoute(path, renderFn) {
@@ -27,7 +36,8 @@ export function navigate(path, { replace = false } = {}) {
   }
   currentPath = targetPath;
   const method = replace ? "replaceState" : "pushState";
-  window.history[method]({}, "", targetPath);
+  const fullPath = addBasePath(targetPath);
+  window.history[method]({}, "", fullPath);
   render(targetPath);
 }
 
@@ -102,13 +112,61 @@ function notifyNavigation(pathname) {
 function normalizePathname(path) {
   if (!path) return "/";
   let normalized = path;
+  try {
+    normalized = new URL(path, window.location.origin).pathname;
+  } catch {
+    normalized = String(path);
+  }
   const indexSuffix = "/index.html";
   if (normalized.endsWith(indexSuffix)) {
     normalized = normalized.slice(0, -indexSuffix.length);
   }
   normalized = normalized.replace(/\/+$/, "");
+  const base = basePath === "/" ? "" : basePath;
+  if (base && normalized.startsWith(base)) {
+    normalized = normalized.slice(base.length) || "/";
+  }
   if (normalized === "" || normalized === "/") {
     return "/";
   }
   return normalized.startsWith("/") ? normalized : `/${normalized}`;
+}
+
+function addBasePath(path) {
+  const base = basePath === "/" ? "" : basePath;
+  if (!base) {
+    return path;
+  }
+  if (path === "/") {
+    return `${base}/`;
+  }
+  return `${base}${path}`;
+}
+
+function normalizeBasePath(path) {
+  if (!path) return "/";
+  let normalized = path.trim();
+  if (!normalized.startsWith("/")) {
+    normalized = `/${normalized}`;
+  }
+  normalized = normalized.replace(/\/+$/, "");
+  return normalized === "" ? "/" : normalized;
+}
+
+function detectBasePath() {
+  try {
+    const url = new URL(import.meta.url);
+    if (url.protocol === "file:") {
+      return "/";
+    }
+    const marker = "/src/";
+    const index = url.pathname.indexOf(marker);
+    if (index === -1) {
+      return "/";
+    }
+    const prefix = url.pathname.slice(0, index);
+    return normalizeBasePath(prefix);
+  } catch {
+    return "/";
+  }
 }

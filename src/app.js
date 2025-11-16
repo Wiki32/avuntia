@@ -1,5 +1,5 @@
 import { initState, getLanguage, setLanguage, SUPPORTED_LANGUAGES } from "./state.js";
-import { render, setRoot, navigate } from "./router.js";
+import { render, setRoot, navigate, getBasePath } from "./router.js";
 import { registerAllRoutes } from "./views/register.js";
 import { applyTranslations, preloadTranslations } from "./utils/i18n.js";
 
@@ -9,16 +9,19 @@ const appRoot = document.getElementById("app");
 setRoot(appRoot);
 
 registerAllRoutes();
+const basePath = getBasePath();
 
 const initialPath = window.location.pathname;
-const shouldRedirectToHome = initialPath === "/" || initialPath.endsWith("/index.html");
+const normalizedInitialPath = normalizePath(initialPath);
+const shouldRedirectToHome = normalizedInitialPath === "/";
 
 if (shouldRedirectToHome) {
   navigate("/home", { replace: true });
 } else {
-  render(initialPath);
+  render(normalizedInitialPath);
 }
 
+applyBasePathToLinks();
 setupGlobalInteractions();
 setCurrentYear();
 beginTranslation();
@@ -32,10 +35,10 @@ Promise.resolve(applyTranslations(document, getLanguage()))
   });
 syncLanguageSelector(getLanguage());
 
-const startingPath = shouldRedirectToHome ? "/home" : initialPath;
+const startingPath = shouldRedirectToHome ? "/home" : normalizedInitialPath;
 highlightActiveNav(startingPath);
 window.addEventListener("avuntia:navigate", async (event) => {
-  const pathname = event.detail?.pathname ?? window.location.pathname;
+  const pathname = normalizePath(event.detail?.pathname ?? window.location.pathname);
   highlightActiveNav(pathname);
   beginTranslation();
   try {
@@ -63,8 +66,9 @@ window.addEventListener("avuntia:language-change", async (event) => {
   } finally {
     endTranslation();
   }
-  render(window.location.pathname);
-  highlightActiveNav(window.location.pathname);
+  const currentPath = normalizePath(window.location.pathname);
+  render(currentPath);
+  highlightActiveNav(currentPath);
   preloadRemainingLanguages(language);
 });
 
@@ -76,7 +80,7 @@ function setupGlobalInteractions() {
     const hrefAttribute = target.getAttribute("href");
     if (!hrefAttribute) return;
     const normalizedHref = normalizePath(hrefAttribute);
-    const destination = normalizedHref === "/" ? "/home" : hrefAttribute;
+    const destination = normalizedHref === "/" ? "/home" : normalizedHref;
     event.preventDefault();
     document.querySelector(".menu")?.classList.remove("open");
     document.querySelector(".nav-toggle")?.setAttribute("aria-expanded", "false");
@@ -116,6 +120,30 @@ function setupGlobalInteractions() {
   }
 }
 
+function applyBasePathToLinks() {
+  if (basePath === "/") return;
+  document.querySelectorAll("a[data-link]").forEach((link) => {
+    const href = link.getAttribute("href");
+    if (!href) return;
+    const normalizedHref = normalizePath(href);
+    const resolvedHref = buildHrefWithBase(normalizedHref);
+    if (resolvedHref && href !== resolvedHref) {
+      link.setAttribute("href", resolvedHref);
+    }
+  });
+}
+
+function buildHrefWithBase(path) {
+  if (!path) return "/";
+  if (basePath === "/" || basePath === "") {
+    return path;
+  }
+  if (path === "/") {
+    return `${basePath}/`;
+  }
+  return `${basePath}${path}`;
+}
+
 function setCurrentYear() {
   const yearElement = document.querySelector("[data-current-year]");
   if (!yearElement) return;
@@ -140,11 +168,24 @@ function highlightActiveNav(pathname) {
 
 function normalizePath(path) {
   if (!path) return "/";
-  let normalized = path.replace(/\/+$/, "");
+  let normalized = path;
+  try {
+    normalized = new URL(path, window.location.origin).pathname;
+  } catch {
+    normalized = String(path);
+  }
   if (normalized.endsWith("/index.html")) {
     normalized = normalized.slice(0, -"/index.html".length);
   }
-  return normalized === "" ? "/" : normalized;
+  normalized = normalized.replace(/\/+$/, "");
+  const base = basePath === "/" ? "" : basePath;
+  if (base && normalized.startsWith(base)) {
+    normalized = normalized.slice(base.length) || "/";
+  }
+  if (normalized === "" || normalized === "/") {
+    return "/";
+  }
+  return normalized.startsWith("/") ? normalized : `/${normalized}`;
 }
 
 function syncLanguageSelector(language) {
