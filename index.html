@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Invest Facility · Demo Plataforma</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <nav class="top-nav" aria-label="Navegación principal" data-i18n-attr="aria-label:nav.ariaLabel">
+      <a class="brand" href="/" data-link>
+        <img src="./assets/logo.svg" alt="" aria-hidden="true" />
+        <span data-i18n-ignore>Invest Facility</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-menu">
+        <span class="sr-only" data-i18n-key="nav.toggle">Abrir menú</span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+      <div class="menu" id="primary-menu">
+        <div class="menu-links">
+          <a href="/" data-link data-i18n-key="nav.items.home">Home</a>
+          <a href="/como-funciona" data-link data-i18n-key="nav.items.how">Cómo funciona</a>
+          <a href="/planes" data-link data-i18n-key="nav.items.plans">Planes</a>
+          <a href="/seguridad" data-link data-i18n-key="nav.items.security">Seguridad</a>
+          <a href="/faq" data-link data-i18n-key="nav.items.faq">FAQ</a>
+          <a href="/contacto" data-link data-i18n-key="nav.items.contact">Contacto</a>
+        </div>
+        <div class="nav-actions">
+          <div class="language-picker" data-language="es">
+            <span class="language-flag" aria-hidden="true"></span>
+            <label class="sr-only" for="language-selector" data-i18n-key="nav.languageLabel">Seleccionar idioma</label>
+            <select
+              id="language-selector"
+              name="language"ical:
+              aria-label="Seleccionar idioma"
+              data-i18n-attr="aria-label:nav.languageLabel"
+            >
+              <option value="es" data-i18n-ignore>ESP</option>
+              <option value="ca" data-i18n-ignore>CAT</option>
+              <option value="en" data-i18n-ignore>ENG</option>
+            </select>
+            <span class="language-chevron" aria-hidden="true"></span>
+          </div>
+          <a class="button small" href="/login" data-link data-i18n-key="nav.actions.companies">Acceso empresas</a>
+          <a class="button ghost small" href="/empleado/acceso" data-link data-i18n-key="nav.actions.employees">Acceso empleados</a>
+        </div>
+      </div>
+    </nav>
+
+    <main id="app" tabindex="-1"></main>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <div>
+          <h2 class="footer-title" data-i18n-ignore>Invest Facility</h2>
+          <p data-i18n-key="footer.description">
+            Invest Facility es un proveedor tecnológico. No presta servicios de inversión ni asesoramiento financiero,
+            no acepta fondos de clientes y no custodia instrumentos financieros. La ejecución y custodia son
+            realizadas por las entidades financieras colaboradoras debidamente autorizadas.
+          </p>
+        </div>
+        <div class="footer-links">
+          <a href="/legal/aviso" data-link data-i18n-key="footer.links.legalNotice">Aviso legal</a>
+          <a href="/legal/privacidad" data-link data-i18n-key="footer.links.privacy">Privacidad</a>
+          <a href="/legal/cookies" data-link data-i18n-key="footer.links.cookies">Cookies</a>
+          <a href="/legal/terminos" data-link data-i18n-key="footer.links.terms">Términos</a>
+          <a href="/maintenance" data-link data-i18n-key="footer.links.status">Estado del servicio</a>
+        </div>
+      </div>
+      <p class="footer-meta">
+        © <span data-current-year></span> Invest Facility <span data-i18n-key="footer.meta">Demo sin custodia</span>.
+      </p>
+    </footer>
+
+    <div id="toast-container" role="status" aria-live="polite"></div>
+
+    <script type="module" src="./src/app.js"></script>
+  </body>
+</html>
