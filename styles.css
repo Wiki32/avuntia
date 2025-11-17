@@ -741,8 +741,24 @@ button {
   gap: 1rem;
 }
 
+.how-stage-grid {
+  grid-auto-rows: 1fr;
+}
+
+.how-stage-grid .how-stage {
+  height: 100%;
+}
+
 .how-stage h3 {
   margin: 0;
+}
+
+.how-stage .chip {
+  width: calc(100% - 1rem);
+  height: 2.4rem;
+  margin-inline: auto;
+  justify-content: center;
+  text-align: center;
 }
 
 .how-stage-list {

@@ -335,7 +335,7 @@ function renderHowItWorks() {
         Acompañamos a tu equipo con un playbook claro que incluye checklists de compliance, plantillas y formación para
         asegurar la adopción.
       </p>
-      <div class="grid three">
+      <div class="grid three how-stage-grid">
         ${stages
           .map(
             (stage) => `<article class="how-stage">
