@@ -1,10 +1,11 @@
 import { seedData } from "./data/seed.js";
 import { cloneDeep } from "./utils/object.js";
+import { LANGUAGE_CHANGE_EVENT } from "./events.js";
 
-const STORAGE_KEY = "avuntia-state";
-const EMPRESA_SESSION_KEY = "avuntia-session";
-const EMPLOYEE_SESSION_KEY = "avuntia-employee-session";
-const ADMIN_SESSION_KEY = "avuntia-admin-session";
+const STORAGE_KEY = "invest facility-state";
+const EMPRESA_SESSION_KEY = "invest facility-session";
+const EMPLOYEE_SESSION_KEY = "invest facility-employee-session";
+const ADMIN_SESSION_KEY = "invest facility-admin-session";
 
 function buildDefaultEmployeeContributions() {
   const contributions = {};
@@ -26,7 +27,7 @@ function defaultEmployeePortal() {
     contributions: buildDefaultEmployeeContributions(),
     paused: false,
     documents: {},
-    contactEmail: "empleado@avuntia.com"
+    contactEmail: "empleado@investfacility.com"
   };
 }
 
@@ -372,7 +373,7 @@ export function setLanguage(language) {
   }
   if (typeof window !== "undefined") {
     window.dispatchEvent(
-      new CustomEvent("avuntia:language-change", {
+      new CustomEvent(LANGUAGE_CHANGE_EVENT, {
         detail: { language: normalized }
       })
     );
@@ -408,7 +409,7 @@ export function resetPilotState() {
 
 function exposeDebugHelpers() {
   if (typeof window !== "undefined") {
-    window.__avuntiaState = {
+    window.__investFacilityState = {
       get: getState,
       reset: resetPilotState
     };

@@ -2,6 +2,7 @@ import { initState, getLanguage, setLanguage, SUPPORTED_LANGUAGES } from "./stat
 import { render, setRoot, navigate, getBasePath } from "./router.js";
 import { registerAllRoutes } from "./views/register.js";
 import { applyTranslations, preloadTranslations } from "./utils/i18n.js";
+import { NAVIGATE_EVENT, LANGUAGE_CHANGE_EVENT } from "./events.js";
 
 initState();
 
@@ -38,7 +39,7 @@ syncLanguageSelector(getLanguage());
 
 const startingPath = shouldRedirectToHome ? "/home" : normalizedInitialPath;
 highlightActiveNav(startingPath);
-window.addEventListener("avuntia:navigate", async (event) => {
+window.addEventListener(NAVIGATE_EVENT, async (event) => {
   const pathname = normalizePath(event.detail?.pathname ?? window.location.pathname);
   highlightActiveNav(pathname);
   beginTranslation();
@@ -56,7 +57,7 @@ window.addEventListener("popstate", () => {
   render(window.location.pathname);
 });
 
-window.addEventListener("avuntia:language-change", async (event) => {
+window.addEventListener(LANGUAGE_CHANGE_EVENT, async (event) => {
   const language = event.detail?.language ?? getLanguage();
   syncLanguageSelector(language);
   beginTranslation();

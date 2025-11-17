@@ -24,7 +24,7 @@ const STAGE_STYLES = {
   activo: { bg: "rgba(0, 184, 148, 0.15)", color: "#009c7b" }
 };
 
-const ADMIN_PASSCODE = "avuntia-2025";
+const ADMIN_PASSCODE = "invest facility-2025";
 
 const oauthRoutes = {
   "/oauth": renderOauthConsole
@@ -62,7 +62,7 @@ function buildLoginSection() {
       </span>
       <h1>Iniciar sesión en la consola OAuth</h1>
       <p class="subtitle">
-        Introduce la contraseña compartida del piloto para desbloquear la gestión de compañías conectadas a Avuntia via
+        Introduce la contraseña compartida del piloto para desbloquear la gestión de compañías conectadas a Invest Facility via
         OAuth.
       </p>
       <form id="oauth-login-form">
@@ -356,7 +356,7 @@ function buildSessionBanner(session) {
     html`<div class="grid two" style="align-items:center;">
       <div>
         <span class="badge">${badge}</span>
-        <h2>Panel interno Avuntia</h2>
+        <h2>Panel interno Invest Facility</h2>
         <p class="subtitle">
           Estás autenticado para gestionar compañías y sus credenciales OAuth simuladas dentro del piloto.
         </p>

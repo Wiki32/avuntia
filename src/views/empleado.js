@@ -104,7 +104,7 @@ function renderEmployeeHome() {
       <p class="subtitle">
         Resumen de tu plan de inversión mensual vía nómina.
         <br />
-        <small>Sesión de prueba iniciada como <strong>${session.email || "empleado@avuntia.com"}</strong></small>
+        <small>Sesión de prueba iniciada como <strong>${session.email || "empleado@investfacility.com"}</strong></small>
       </p>
       <div class="grid two">
         <div class="card">

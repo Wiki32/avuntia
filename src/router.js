@@ -1,3 +1,5 @@
+import { NAVIGATE_EVENT } from "./events.js";
+
 const routes = new Map();
 let notFoundRoute = null;
 let currentPath = "/";
@@ -103,7 +105,7 @@ function compilePath(path) {
 
 function notifyNavigation(pathname) {
   window.dispatchEvent(
-    new CustomEvent("avuntia:navigate", {
+    new CustomEvent(NAVIGATE_EVENT, {
       detail: { pathname }
     })
   );

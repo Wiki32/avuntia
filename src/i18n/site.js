@@ -19,7 +19,7 @@ export const siteCopy = {
     },
     footer: {
       description:
-        "Avuntia es un proveedor tecnológico. No presta servicios de inversión ni asesoramiento financiero, no acepta fondos de clientes y no custodia instrumentos financieros. La ejecución y custodia son realizadas por las entidades financieras colaboradoras debidamente autorizadas.",
+        "Invest Facility es un proveedor tecnológico. No presta servicios de inversión ni asesoramiento financiero, no acepta fondos de clientes y no custodia instrumentos financieros. La ejecución y custodia son realizadas por las entidades financieras colaboradoras debidamente autorizadas.",
       links: {
         legalNotice: "Aviso legal",
         privacy: "Privacidad",
@@ -30,8 +30,8 @@ export const siteCopy = {
       meta: "Demo sin custodia"
     },
     documentTitle: {
-      base: "Avuntia · Demo Plataforma",
-      prefix: "Avuntia",
+      base: "Invest Facility · Demo Plataforma",
+      prefix: "Invest Facility",
       separator: " · "
     }
   },
@@ -55,7 +55,7 @@ export const siteCopy = {
     },
     footer: {
       description:
-        "Avuntia és un proveïdor tecnològic. No presta serveis d'inversió ni assessorament financer, no accepta fons de clients ni custodia instruments financers. L'execució i la custòdia es duen a terme a través de les entitats financeres col·laboradores degudament autoritzades.",
+        "Invest Facility és un proveïdor tecnològic. No presta serveis d'inversió ni assessorament financer, no accepta fons de clients ni custodia instruments financers. L'execució i la custòdia es duen a terme a través de les entitats financeres col·laboradores degudament autoritzades.",
       links: {
         legalNotice: "Avís legal",
         privacy: "Privadesa",
@@ -66,8 +66,8 @@ export const siteCopy = {
       meta: "Demostració sense custòdia"
     },
     documentTitle: {
-      base: "Avuntia · Plataforma demo",
-      prefix: "Avuntia",
+      base: "Invest Facility · Plataforma demo",
+      prefix: "Invest Facility",
       separator: " · "
     }
   },
@@ -91,7 +91,7 @@ export const siteCopy = {
     },
     footer: {
       description:
-        "Avuntia is a technology provider. It does not offer investment or financial advisory services, does not accept client funds, and does not safeguard financial instruments. Execution and custody are carried out by duly authorised partner financial institutions.",
+        "Invest Facility is a technology provider. It does not offer investment or financial advisory services, does not accept client funds, and does not safeguard financial instruments. Execution and custody are carried out by duly authorised partner financial institutions.",
       links: {
         legalNotice: "Legal notice",
         privacy: "Privacy",
@@ -102,8 +102,8 @@ export const siteCopy = {
       meta: "Custody-free demo"
     },
     documentTitle: {
-      base: "Avuntia · Demo platform",
-      prefix: "Avuntia",
+      base: "Invest Facility · Demo platform",
+      prefix: "Invest Facility",
       separator: " · "
     }
   }

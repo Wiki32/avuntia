@@ -35,9 +35,9 @@ export const translations = {
     en: "Summary of available plans"
   },
   "public.home.hero.panelTitle": {
-    es: "Avuntia Labs",
-    ca: "Avuntia Labs",
-    en: "Avuntia Labs"
+    es: "Invest Facility Labs",
+    ca: "Invest Facility Labs",
+    en: "Invest Facility Labs"
   },
   "public.home.hero.panelSubtitle": {
     es: "Plataforma tecnológica para planes de inversión por nómina.",
@@ -85,9 +85,9 @@ export const translations = {
     en: "5 MiFID & PRIIPs specialists"
   },
   "public.home.reasons.title": {
-    es: "¿Por qué Avuntia?",
-    ca: "Per què Avuntia?",
-    en: "Why Avuntia?"
+    es: "¿Por qué Invest Facility?",
+    ca: "Per què Invest Facility?",
+    en: "Why Invest Facility?"
   },
   "public.home.reasons.items.frictionless.title": {
     es: "Ahorro sin fricción",
@@ -220,9 +220,9 @@ export const translations = {
     en: "Frequently asked questions"
   },
   "public.faq.subtitle": {
-    es: "Respuestas breves a las dudas más comunes sobre el piloto de Avuntia. Escríbenos si necesitas más detalle para tu comité o equipo.",
-    ca: "Respostes breus a les preguntes més habituals sobre el pilot d'Avuntia. Escriu-nos si necessites més detall per al teu comitè o equip.",
-    en: "Short answers to the most common questions about Avuntia's pilot. Let us know if you need more detail for your committee or team."
+    es: "Respuestas breves a las dudas más comunes sobre el piloto de Invest Facility. Escríbenos si necesitas más detalle para tu comité o equipo.",
+    ca: "Respostes breus a les preguntes més habituals sobre el pilot d'Invest Facility. Escriu-nos si necessites més detall per al teu comitè o equip.",
+    en: "Short answers to the most common questions about Invest Facility's pilot. Let us know if you need more detail for your committee or team."
   },
   "public.faq.cta.prompt": {
     es: "¿No encuentras lo que buscas?",
@@ -240,9 +240,9 @@ export const translations = {
     en: "Does the platform hold client money or instruments?"
   },
   "public.faq.entries.0.answer": {
-    es: "No. Avuntia es un proveedor tecnológico. Toda custodia y ejecución la realiza una entidad financiera autorizada (banco/ESI/gestora+depositario).",
-    ca: "No. Avuntia és un proveïdor tecnològic. Tota la custòdia i l'execució les realitza una entitat financera autoritzada (banc/ESI/gestora + depositari).",
-    en: "No. Avuntia is a technology provider. All custody and execution are handled by an authorised financial institution (bank/investment firm/manager plus custodian)."
+    es: "No. Invest Facility es un proveedor tecnológico. Toda custodia y ejecución la realiza una entidad financiera autorizada (banco/ESI/gestora+depositario).",
+    ca: "No. Invest Facility és un proveïdor tecnològic. Tota la custòdia i l'execució les realitza una entitat financera autoritzada (banc/ESI/gestora + depositari).",
+    en: "No. Invest Facility is a technology provider. All custody and execution are handled by an authorised financial institution (bank/investment firm/manager plus custodian)."
   },
   "public.faq.entries.1.question": {
     es: "¿Qué pasa si un empleado deja la empresa?",

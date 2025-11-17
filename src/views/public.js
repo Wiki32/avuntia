@@ -82,7 +82,7 @@ function renderHome() {
         </div>
       </div>
       <div class="card">
-        <h2 class="title" data-i18n-key="public.home.hero.panelTitle">Avuntia Labs</h2>
+        <h2 class="title" data-i18n-key="public.home.hero.panelTitle">Invest Facility Labs</h2>
         <p class="subtitle" data-i18n-key="public.home.hero.panelSubtitle">Plataforma tecnológica para planes de inversión por nómina.</p>
         <dl class="grid two">
           ${highlights
@@ -100,7 +100,7 @@ function renderHome() {
 
   wrapper.append(
     html`<section class="section card">
-      <h2 data-i18n-key="public.home.reasons.title">¿Por qué Avuntia?</h2>
+      <h2 data-i18n-key="public.home.reasons.title">¿Por qué Invest Facility?</h2>
       <div class="grid two">
         ${[
           {
@@ -385,7 +385,7 @@ function renderHowItWorks() {
             <text x="80" y="60" text-anchor="middle" font-size="13">Empresa (RR. HH.)</text>
 
             <rect x="220" y="30" width="120" height="50" rx="12" fill="#dfe6ff"></rect>
-            <text x="280" y="60" text-anchor="middle" font-size="13">Plataforma Avuntia</text>
+            <text x="280" y="60" text-anchor="middle" font-size="13">Plataforma Invest Facility</text>
 
             <rect x="20" y="160" width="120" height="50" rx="12" fill="#cce8ff"></rect>
             <text x="80" y="190" text-anchor="middle" font-size="13">Entidad financiera</text>
@@ -492,7 +492,7 @@ function renderPlans() {
     {
       marker: "03",
       title: "Operativa automatizada",
-      text: "Flujo SEPA, conciliación y reporting gestionado por Avuntia junto a entidades reguladas."
+      text: "Flujo SEPA, conciliación y reporting gestionado por Invest Facility junto a entidades reguladas."
     }
   ];
   const planDetails = {
@@ -552,7 +552,7 @@ function renderPlans() {
     },
     {
       title: "Gobernanza compartida",
-      text: "Comité mensual con la entidad regulada y Avuntia para seguimiento y ajustes."
+      text: "Comité mensual con la entidad regulada y Invest Facility para seguimiento y ajustes."
     },
     {
       title: "Soporte especializado",
@@ -602,7 +602,7 @@ function renderPlans() {
     },
     {
       title: "Mesa de soporte compartida",
-      text: "Canal conjunto Avuntia + entidad regulada para resolver incidencias en menos de 4 horas hábiles."
+      text: "Canal conjunto Invest Facility + entidad regulada para resolver incidencias en menos de 4 horas hábiles."
     },
     {
       title: "Análisis de adopción",
@@ -737,7 +737,7 @@ function renderPlans() {
     html`<section class="section card">
       <div class="layout-split plan-layout">
         <div>
-          <h2>Operativa y soporte gestionados por Avuntia</h2>
+          <h2>Operativa y soporte gestionados por Invest Facility</h2>
           <p class="subtitle">
             Coordinamos RR. HH., tesorería y la entidad regulada para que cada aportación quede controlada y documentada.
           </p>
@@ -839,7 +839,7 @@ function renderSecurity() {
       description:
         "Operamos integrados con entidades MiFID y UCITS autorizadas que asumen la custodia y ejecución.",
       bullets: [
-        "Contratos tripartitos con responsabilidades claras (banco custodio, gestora y Avuntia).",
+        "Contratos tripartitos con responsabilidades claras (banco custodio, gestora y Invest Facility).",
         "Procedimientos MiFID II, PRIIPs y KYC/AML documentados y accesibles para auditoría.",
         "KID, test de idoneidad y registros de aceptación disponibles en portal para compliance."
       ]
@@ -926,7 +926,7 @@ function renderSecurity() {
             <span class="list-icon-marker">01</span>
             <div>
               <strong>Gobierno conjunto con entidades reguladas</strong>
-              <p>Roles definidos en acuerdos tripartitos con banco custodio, gestora y Avuntia.</p>
+              <p>Roles definidos en acuerdos tripartitos con banco custodio, gestora y Invest Facility.</p>
             </div>
           </li>
           <li>
@@ -1062,7 +1062,7 @@ function renderFaq() {
   const title = translate("public.faq.heading") || "Preguntas frecuentes";
   const subtitle =
     translate("public.faq.subtitle") ||
-    "Respuestas breves a las dudas más comunes sobre el piloto de Avuntia. Escríbenos si necesitas más detalle para tu comité o equipo.";
+    "Respuestas breves a las dudas más comunes sobre el piloto de Invest Facility. Escríbenos si necesitas más detalle para tu comité o equipo.";
   const ctaPrompt = translate("public.faq.cta.prompt") || "¿No encuentras lo que buscas?";
   const ctaButton = translate("public.faq.cta.button") || "Contáctanos";
   const entries = getGeneralFaq().map((item, index) => ({
@@ -1225,7 +1225,7 @@ function getGeneralFaq() {
     {
       category: "regulatory",
       q: "¿La plataforma custodia dinero o instrumentos?",
-      a: "No. Avuntia es un proveedor tecnológico. Toda custodia y ejecución la realiza una entidad financiera autorizada (banco/ESI/gestora+depositario)."
+      a: "No. Invest Facility es un proveedor tecnológico. Toda custodia y ejecución la realiza una entidad financiera autorizada (banco/ESI/gestora+depositario)."
     },
     {
       category: "employees",
@@ -1277,16 +1277,16 @@ function getGeneralFaq() {
 
 function getLegalNoticeContent() {
   return html`<p>
-      Avuntia Labs, S.L. (en adelante, “Avuntia”) explota esta plataforma tecnológica piloto. La información
+      Invest Facility Labs, S.L. (en adelante, “Invest Facility”) explota esta plataforma tecnológica piloto. La información
       aquí contenida no constituye oferta ni recomendación de inversión. La ejecución de órdenes, la recepción y
       transmisión (en su caso), el KYC/AML y la custodia son prestados por entidades financieras autorizadas que
       deberán formalizarse mediante contratos específicos.
     </p>
     <h2>Datos de contacto</h2>
-    <p>info@avuntia.test · Paseo Prueba 123, 28000 Madrid.</p>
+    <p>info@investfacility.test · Paseo Prueba 123, 28000 Madrid.</p>
     <h2>Limitación de responsabilidad</h2>
     <p>
-      Esta versión piloto no procesa datos reales ni acepta fondos. Avuntia no será responsable de pérdidas derivadas
+      Esta versión piloto no procesa datos reales ni acepta fondos. Invest Facility no será responsable de pérdidas derivadas
       de la interpretación de la información contenida en el sitio.
     </p>`;
 }
@@ -1326,11 +1326,11 @@ function getTermsContent() {
     <h2>Uso permitido</h2>
     <p>
       Se autoriza su visualización para fines internos de evaluación. Queda prohibida la reproducción sin permiso
-      expreso de Avuntia.
+      expreso de Invest Facility.
     </p>
     <h2>Propiedad intelectual</h2>
     <p>
-      El diseño, textos y código pertenecen a Avuntia Labs, S.L. No se concede licencia alguna más allá del uso piloto
+      El diseño, textos y código pertenecen a Invest Facility Labs, S.L. No se concede licencia alguna más allá del uso piloto
       temporal.
     </p>`;
 }

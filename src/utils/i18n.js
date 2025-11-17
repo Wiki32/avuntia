@@ -3,7 +3,7 @@ import { siteCopy } from "../i18n/site.js";
 import { translations } from "../i18n/dictionary.js";
 
 const FALLBACK_LANGUAGE = "es";
-const TRANSLATION_CACHE_KEY = "avuntia-translation-cache";
+const TRANSLATION_CACHE_KEY = "invest facility-translation-cache";
 const TRANSLATION_ENDPOINT = "https://lingva.ml/api/v1";
 
 function resolveLanguage(language = getLanguage()) {
