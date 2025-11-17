@@ -54,7 +54,7 @@ function renderHome() {
     .map((plan) => `<span class="pill">${plan.name} · ${formatSrri(plan.srri)} · TER ${formatTer(plan.ter)}</span>`)
     .join("");
   const highlights = [
-    { key: "clients", title: "Clientes piloto", value: "2 empresas activas" },
+    { key: "clients", title: "Clientes activos", value: "2 empresas en producción" },
     { key: "integrations", title: "Integraciones listas", value: "12 conectores bancarios / fondos" },
     { key: "sla", title: "Disponibilidad SLA", value: "99,7% último trimestre" },
     { key: "compliance", title: "Equipo compliance", value: "5 especialistas MiFID & PRIIPs" }
@@ -63,7 +63,7 @@ function renderHome() {
   wrapper.append(
     html`<section class="hero card">
       <div>
-        <span class="badge" data-i18n-key="public.home.hero.badge">Piloto B2B2C · Nómina → Inversión</span>
+        <span class="badge" data-i18n-key="public.home.hero.badge">Programa B2B2C · Nómina → Inversión</span>
         <h1 data-i18n-key="public.home.hero.title">Ahorro e inversión mensual para empleados</h1>
         <p data-i18n-key="public.home.hero.description">
           Lanza un plan de inversión sencillo con aportaciones recurrentes desde la nómina de tus equipos.
@@ -155,11 +155,11 @@ function renderHome() {
         </div>
         <div>
           <strong>≤4 h</strong>
-          <p data-i18n-key="public.home.metrics.items.response">tiempo de respuesta soporte piloto (SLA 8×5).</p>
+          <p data-i18n-key="public.home.metrics.items.response">tiempo de respuesta soporte especializado (SLA 8×5).</p>
         </div>
         <div>
           <strong>≤16 semanas</strong>
-          <p data-i18n-key="public.home.metrics.items.golive">desde kick-off a go-live del piloto (supuestos Paquete A).</p>
+          <p data-i18n-key="public.home.metrics.items.golive">desde kick-off a go-live del programa (supuestos Paquete A).</p>
         </div>
       </div>
     </section>`
@@ -244,7 +244,7 @@ function renderHowItWorks() {
   const automations = [
     {
       title: "Integración con nómina",
-      text: "API REST o carga CSV con validaciones de formato, reglas de corte y simulador previo a enviar."
+      text: "API REST o carga CSV con validaciones de formato, reglas de corte y herramienta previa al envío."
     },
     {
       title: "Control de límites MiFID",
@@ -268,7 +268,7 @@ function renderHowItWorks() {
     {
       step: "Semana 2",
       title: "Cargamos y validamos datos",
-      text: "Pruebas con nómina histórica, firma de acuerdos y sandbox para RR. HH."
+      text: "Validaciones con nómina histórica, firma de acuerdos y sandbox para RR. HH."
     },
     {
       step: "Semana 3",
@@ -323,14 +323,14 @@ function renderHowItWorks() {
             )
             .join("")}
         </ol>
-        <a class="button ghost small" href="/contacto" data-link>Solicitar demo guiada</a>
+        <a class="button ghost small" href="/contacto" data-link>Solicitar tour guiado</a>
       </div>
     </section>`
   );
 
   wrapper.append(
     html`<section class="section card">
-      <h2>Fases del despliegue piloto</h2>
+      <h2>Fases del despliegue</h2>
       <p class="subtitle">
         Acompañamos a tu equipo con un playbook claro que incluye checklists de compliance, plantillas y formación para
         asegurar la adopción.
@@ -460,7 +460,7 @@ function renderHowItWorks() {
       </div>
       <div class="how-cta-actions">
         <a class="button" href="/contacto" data-link>Agendar kickoff</a>
-        <a class="button ghost" href="/planes" data-link>Explorar planes piloto</a>
+        <a class="button ghost" href="/planes" data-link>Explorar planes disponibles</a>
       </div>
     </section>`
   );
@@ -469,14 +469,14 @@ function renderHowItWorks() {
 }
 
 function renderPlans() {
-  setPageTitle(translate("public.plans.metaTitle") || "Planes piloto");
+  setPageTitle(translate("public.plans.metaTitle") || "Planes disponibles");
   const { plans } = getState();
   const wrapper = createEl("div");
   const metrics = [
     { value: "3 carteras", label: "UCITS gestionadas por partners regulados" },
     { value: "≤0,35%", label: "TER objetivo con retrocesión 100% al empleado" },
     { value: "99,7%", label: "Disponibilidad operativa últimos 90 días" },
-    { value: "8-12 sem.", label: "Implantación estimada del piloto completo" }
+    { value: "8-12 sem.", label: "Implantación estimada del despliegue completo" }
   ];
   const heroPoints = [
     {
@@ -613,7 +613,7 @@ function renderPlans() {
   wrapper.append(
     html`<section class="card plan-hero">
       <div>
-        <span class="badge">Carteras piloto con partners MiFID &amp; UCITS autorizados</span>
+        <span class="badge">Carteras listas con partners MiFID &amp; UCITS autorizados</span>
         <h1>Planes de inversión recurrente listos para lanzar en tu nómina</h1>
         <p class="subtitle">
           Diseñados para que la empresa ofrezca ahorro/inversión sin convertirse en entidad financiera. Nosotros
@@ -640,7 +640,7 @@ function renderPlans() {
         </ul>
       </div>
       <div class="card plan-hero-panel">
-        <h2>Métricas clave del piloto</h2>
+        <h2>Métricas clave del programa</h2>
         <div class="plan-metrics">
           ${metrics
             .map(
@@ -658,7 +658,7 @@ function renderPlans() {
 
   wrapper.append(
     html`<section class="section card">
-      <h2>Comparativa de carteras piloto</h2>
+      <h2>Comparativa de carteras disponibles</h2>
       <p class="subtitle">
         Tres perfiles paramétricos que cubren los principales horizontes temporales de la plantilla. Todos cumplen los
         criterios de idoneidad y documentación exigidos por MiFID II.
@@ -667,7 +667,7 @@ function renderPlans() {
         ${plans
           .map((plan) => {
             const detail = planDetails[plan.id] ?? {
-              profile: "Plan piloto",
+              profile: "Plan de muestra",
               risk: "Riesgo moderado",
               description: "Cartera diversificada para aportaciones periódicas.",
               allocation: "",
@@ -702,10 +702,10 @@ function renderPlans() {
             </ul>`
               : ""}
             <div class="plan-card-footer">
-              <button type="button" class="button small" data-kid="${plan.id}">Ver KID piloto</button>
-              <a class="button ghost small" href="/empleado/aportacion" data-link>Simular aportación</a>
+              <button type="button" class="button small" data-kid="${plan.id}">Ver KID de referencia</button>
+              <a class="button ghost small" href="/empleado/aportacion" data-link>Ajustar aportación</a>
             </div>
-            <p class="muted">ISIN demo: ${plan.isin}</p>
+            <p class="muted">ISIN de referencia: ${plan.isin}</p>
           </article>`;
           })
           .join("")}
@@ -715,7 +715,7 @@ function renderPlans() {
 
   wrapper.append(
     html`<section class="section card">
-      <h2>¿Qué incluye el piloto?</h2>
+      <h2>¿Qué incluye el programa?</h2>
       <p class="subtitle">
         Entregamos un programa completo para que el beneficio de ahorro quede desplegado con mínimo esfuerzo operativo
         para la empresa.
@@ -794,7 +794,7 @@ function renderPlans() {
   wrapper.append(
     html`<section class="section card plan-cta">
       <div>
-        <h2>Activa tus planes piloto con acompañamiento experto</h2>
+        <h2>Activa tus planes con acompañamiento experto</h2>
         <p class="subtitle">
           Te guiamos desde la due diligence hasta el go-live y las primeras nóminas. Solicita el dossier completo o
           agenda una sesión con nuestro equipo.
@@ -813,11 +813,11 @@ function renderPlans() {
       const plan = plans.find((p) => p.id === planId);
       if (!plan) return;
       openSimplePdf({
-        title: `KID piloto - ${plan.name}`,
-        subtitle: "Documento informativo simulado sin validez legal",
+        title: `KID de referencia - ${plan.name}`,
+        subtitle: "Documento informativo sin validez legal",
         filename: `KID-${plan.id}.pdf`
       });
-      showToast(`KID piloto generado para ${plan.name}`);
+      showToast(`KID de referencia generado para ${plan.name}`);
     });
   });
   return wrapper;
@@ -972,7 +972,7 @@ function renderSecurity() {
       <h2>Pilares de confianza</h2>
       <p class="subtitle">
         Diseñamos la plataforma para que el cumplimiento normativo y la protección de los datos estén visibles desde el
-        primer día del piloto.
+        primer día de operación.
       </p>
       <div class="grid three">
         ${pillars
@@ -1016,7 +1016,7 @@ function renderSecurity() {
         <div class="security-panel security-panel-solid">
           <h3>Due diligence y auditoría</h3>
           <p>
-            Entregamos evidencias, plantillas de reporte y acceso a entornos de pruebas para que tu comité valide cada
+            Entregamos evidencias, plantillas de reporte y acceso a entornos controlados para que tu comité valide cada
             control.
           </p>
           <ul class="security-timeline">
@@ -1042,7 +1042,7 @@ function renderSecurity() {
       <div>
         <h2>Listos para tu due diligence</h2>
         <p class="subtitle">
-          Compartimos procedimientos, matrices de control y resultados de pruebas bajo NDA para acelerar la aprobación
+          Compartimos procedimientos, matrices de control y resultados de testeo bajo NDA para acelerar la aprobación
           interna.
         </p>
       </div>
@@ -1062,7 +1062,7 @@ function renderFaq() {
   const title = translate("public.faq.heading") || "Preguntas frecuentes";
   const subtitle =
     translate("public.faq.subtitle") ||
-    "Respuestas breves a las dudas más comunes sobre el piloto de Invest Facility. Escríbenos si necesitas más detalle para tu comité o equipo.";
+    "Respuestas breves a las dudas más comunes sobre la experiencia de Invest Facility. Escríbenos si necesitas más detalle para tu comité o equipo.";
   const ctaPrompt = translate("public.faq.cta.prompt") || "¿No encuentras lo que buscas?";
   const ctaButton = translate("public.faq.cta.button") || "Contáctanos";
   const entries = getGeneralFaq().map((item, index) => ({
@@ -1097,7 +1097,7 @@ function renderFaq() {
 function renderContact() {
   setPageTitle(translate("public.contact.metaTitle") || "Contacto");
   const wrapper = createEl("section", { className: "card" });
-  const formId = "contact-form-piloto";
+  const formId = "contact-form-sandbox";
   const privacyLink = `<a href="/legal/privacidad" data-link>${
     translate("footer.links.privacy") || "Privacidad"
   }</a>`;
@@ -1105,7 +1105,7 @@ function renderContact() {
     heading: translate("public.contact.heading") || "¿Hablamos?",
     subtitle:
       translate("public.contact.subtitle") ||
-      "Envía tus datos y te contactaremos para activar el piloto. Este formulario es de muestra: los envíos se confirman con un toast.",
+      "Envía tus datos y te contactaremos para activar la experiencia. Este formulario es de muestra: los envíos se confirman con un toast.",
     form: {
       nameLabel: translate("public.contact.form.name.label") || "Nombre",
       namePlaceholder: translate("public.contact.form.name.placeholder") || "Tu nombre",
@@ -1259,7 +1259,7 @@ function getGeneralFaq() {
     },
     {
       category: "support",
-      q: "¿Qué soporte recibe la empresa durante el piloto?",
+      q: "¿Qué soporte recibe la empresa durante el despliegue?",
       a: "Dispones de un canal dedicado con SLA 8×5, comité quincenal y documentación viva (checklists, guías, manual de comunicación) compartida con RR. HH. y compliance."
     },
     {
@@ -1270,47 +1270,47 @@ function getGeneralFaq() {
     {
       category: "support",
       q: "¿Qué documentación entregáis para la due diligence?",
-      a: "Facilitamos matriz RACI, políticas ISMS en progreso, evidencias de pruebas (SAST/DAST, pentest), flujos SEPA y plantillas de acuerdos tripartitos para validación interna."
+      a: "Facilitamos matriz RACI, políticas ISMS en progreso, evidencias de testeo (SAST/DAST, pentest), flujos SEPA y plantillas de acuerdos tripartitos para validación interna."
     }
   ];
 }
 
 function getLegalNoticeContent() {
   return html`<p>
-      Invest Facility Labs, S.L. (en adelante, “Invest Facility”) explota esta plataforma tecnológica piloto. La información
+      Invest Facility Labs, S.L. (en adelante, “Invest Facility”) explota esta plataforma tecnológica de referencia. La información
       aquí contenida no constituye oferta ni recomendación de inversión. La ejecución de órdenes, la recepción y
       transmisión (en su caso), el KYC/AML y la custodia son prestados por entidades financieras autorizadas que
       deberán formalizarse mediante contratos específicos.
     </p>
     <h2>Datos de contacto</h2>
-    <p>info@investfacility.test · Paseo Prueba 123, 28000 Madrid.</p>
+    <p>info@investfacility.test · Paseo Referencia 123, 28000 Madrid.</p>
     <h2>Limitación de responsabilidad</h2>
     <p>
-      Esta versión piloto no procesa datos reales ni acepta fondos. Invest Facility no será responsable de pérdidas derivadas
+      Esta versión de referencia no procesa datos reales ni acepta fondos. Invest Facility no será responsable de pérdidas derivadas
       de la interpretación de la información contenida en el sitio.
     </p>`;
 }
 
 function getPrivacyContent() {
   return html`<p>
-      Esta versión piloto almacena información ficticia en el navegador (localStorage y sessionStorage) para simular la
+      Esta versión de referencia almacena información ficticia en el navegador (localStorage y sessionStorage) para simular la
       experiencia del producto. No se envían datos a servidores ni se comparten con terceros.
     </p>
-    <h2>Tratamiento simulado</h2>
+    <h2>Tratamiento de referencia</h2>
     <p>
       Los formularios y acciones guardan estado local para mostrar funcionalidades. Puedes borrar todos los datos
       desde el portal empleado → Perfil → “Restablecer datos”.
     </p>
     <h2>Derechos</h2>
     <p>
-      Dado que no se tratan datos reales, los derechos GDPR no aplican en esta versión piloto. Para el producto real,
+      Dado que no se tratan datos reales, los derechos GDPR no aplican en esta versión de referencia. Para el producto real,
       se formalizará un DPA con la entidad promotora y los proveedores regulados.
     </p>`;
 }
 
 function getCookiesContent() {
   return html`<p>
-      Esta versión piloto no utiliza cookies ni trackers externos. El almacenamiento local se limita a datos simulados
+      Esta versión de referencia no utiliza cookies ni trackers externos. El almacenamiento local se limita a datos ficticios
       para mantener la sesión y preferencias de la experiencia.
     </p>
     <h2>Cookies técnicas</h2>
@@ -1319,7 +1319,7 @@ function getCookiesContent() {
 
 function getTermsContent() {
   return html`<p>
-      El acceso a esta versión piloto implica la aceptación de que se trata de una simulación sin obligaciones
+      El acceso a esta versión de referencia implica la aceptación de que se trata de una simulación sin obligaciones
       contractuales. Los flujos mostrados son orientativos y deben validarse con asesoría legal y las entidades
       financieras colaboradoras.
     </p>
@@ -1330,7 +1330,7 @@ function getTermsContent() {
     </p>
     <h2>Propiedad intelectual</h2>
     <p>
-      El diseño, textos y código pertenecen a Invest Facility Labs, S.L. No se concede licencia alguna más allá del uso piloto
-      temporal.
+      El diseño, textos y código pertenecen a Invest Facility Labs, S.L. No se concede licencia alguna más allá del uso
+      temporal para evaluación.
     </p>`;
 }

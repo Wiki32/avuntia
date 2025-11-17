@@ -47,7 +47,7 @@ export function setPageTitle(title) {
   const site = getSiteCopy();
   const prefix = site.documentTitle?.prefix ?? "Invest Facility";
   const separator = site.documentTitle?.separator ?? " · ";
-  const base = site.documentTitle?.base ?? `${prefix}${separator}Demo Plataforma`;
+  const base = site.documentTitle?.base ?? `${prefix}${separator}Plataforma`;
   if (!title) {
     document.title = base;
     return;

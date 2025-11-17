@@ -31,7 +31,7 @@ export const seedData = {
       typeId: "CONSERVADOR",
       srri: 3,
       ter: 0.3,
-      isin: "KIDCONSDEMO"
+      isin: "KIDCONSSIM"
     },
     {
       id: "EQUL",
@@ -39,7 +39,7 @@ export const seedData = {
       typeId: "EQUILIBRADO",
       srri: 4,
       ter: 0.32,
-      isin: "KIDEQULDEMO"
+      isin: "KIDEQULSIM"
     },
     {
       id: "CREC",
@@ -47,7 +47,7 @@ export const seedData = {
       typeId: "DINAMICO",
       srri: 6,
       ter: 0.35,
-      isin: "KIDCRECDEMO"
+      isin: "KIDCRECSIM"
     }
   ],
   employees: [
@@ -152,7 +152,7 @@ export const seedData = {
       stage: "activo",
       contact: "ines.ops@tandemdigital.pt",
       createdAt: "2024-12-05T08:00:00Z",
-      notes: "Piloto completado. OAuth firmado con vida útil de 12 meses."
+      notes: "Simulación completada. OAuth firmado con vida útil de 12 meses."
     },
     {
       id: "cmp-zenith",

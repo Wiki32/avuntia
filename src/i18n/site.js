@@ -27,10 +27,10 @@ export const siteCopy = {
         terms: "Términos",
         status: "Estado del servicio"
       },
-      meta: "Demo sin custodia"
+      meta: "Versión sin custodia"
     },
     documentTitle: {
-      base: "Invest Facility · Demo Plataforma",
+      base: "Invest Facility · Plataforma",
       prefix: "Invest Facility",
       separator: " · "
     }
@@ -63,10 +63,10 @@ export const siteCopy = {
         terms: "Termes",
         status: "Estat del servei"
       },
-      meta: "Demostració sense custòdia"
+      meta: "Versió sense custòdia"
     },
     documentTitle: {
-      base: "Invest Facility · Plataforma demo",
+      base: "Invest Facility · Plataforma",
       prefix: "Invest Facility",
       separator: " · "
     }
@@ -99,10 +99,10 @@ export const siteCopy = {
         terms: "Terms",
         status: "Service status"
       },
-      meta: "Custody-free demo"
+      meta: "Custody-free version"
     },
     documentTitle: {
-      base: "Invest Facility · Demo platform",
+      base: "Invest Facility · Platform",
       prefix: "Invest Facility",
       separator: " · "
     }

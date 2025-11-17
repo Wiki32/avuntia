@@ -100,11 +100,11 @@ function renderEmployeeHome() {
 
   const wrapper = createEl("section", { className: "card" });
   wrapper.append(
-    html`<h1>Hola, ${employee?.name ?? "empleado piloto"}</h1>
+    html`<h1>Hola, ${employee?.name ?? "empleado invitado"}</h1>
       <p class="subtitle">
         Resumen de tu plan de inversión mensual vía nómina.
         <br />
-        <small>Sesión de prueba iniciada como <strong>${session.email || "empleado@investfacility.com"}</strong></small>
+        <small>Sesión temporal iniciada como <strong>${session.email || "empleado@investfacility.com"}</strong></small>
       </p>
       <div class="grid two">
         <div class="card">
@@ -247,7 +247,7 @@ function renderEmployeeAccess() {
         </div>
         <label for="employee-remember">
           <input id="employee-remember" type="checkbox" checked />
-          Mantener sesión mientras dure el piloto
+          Mantener sesión mientras dure la simulación
         </label>
         <div class="form-actions">
           <button class="button" type="submit">Entrar</button>
@@ -283,15 +283,15 @@ function renderKidViewer({ params }) {
   wrapper.append(
     html`<h1>${plan ? `KID · ${plan.name}` : `KID ${isin}`}</h1>
       <p class="subtitle">
-        Documento de Datos Fundamentales (PRIIPs) simulado. Haz clic para abrir el PDF de prueba y marca la casilla de
+        Documento de Datos Fundamentales (PRIIPs) de referencia. Haz clic para abrir el PDF y marca la casilla de
         aceptación si estás conforme.
       </p>
       <div class="form-actions" style="justify-content:flex-start;">
-        <button class="button small" type="button" id="open-kid">Abrir PDF de prueba</button>
+        <button class="button small" type="button" id="open-kid">Abrir PDF de referencia</button>
       </div>
       <label style="display:flex;align-items:center;gap:0.5rem;margin-top:1.5rem;">
         <input type="checkbox" id="accept-kid" ${portal.documents[docKey] ? "checked" : ""} />
-        Confirmo que he leído y acepto el KID simulado
+        Confirmo que he leído y acepto el KID de referencia
       </label>
       <div class="form-actions" style="margin-top:1.5rem;">
         <button class="button" type="button" id="confirm" ${portal.documents[docKey] ? "" : "disabled"}>
@@ -303,7 +303,7 @@ function renderKidViewer({ params }) {
 
   wrapper.querySelector("#open-kid").addEventListener("click", () => {
     openSimplePdf({
-      title: `KID piloto - ${plan?.name ?? isin}`,
+      title: `KID de referencia - ${plan?.name ?? isin}`,
       subtitle: "Documento informativo sin validez legal",
       filename: `KID-${plan?.id ?? isin}.pdf`
     });
@@ -322,7 +322,7 @@ function renderKidViewer({ params }) {
       documents: {
         [docKey]: {
           acceptedAt: timestamp,
-          hash: btoa(`${isin}-piloto`)
+          hash: btoa(`${isin}-referencia`)
         }
       }
     });
@@ -574,7 +574,7 @@ function renderDocuments() {
   const portal = getEmployeePortal();
   const wrapper = createEl("section", { className: "card" });
   wrapper.append(
-    html`<h1>Documentos piloto</h1>
+    html`<h1>Documentos de referencia</h1>
       <div class="grid two">
         <div class="card">
           <h2>KIDs</h2>
@@ -595,7 +595,7 @@ function renderDocuments() {
           <h2>Otros documentos</h2>
           <ul class="list-clean">
             <li>
-              Términos & Condiciones (simulados)
+              Términos & Condiciones (referencia)
               <button class="button ghost small" type="button" data-static="T&C">Descargar</button>
             </li>
             <li>
@@ -614,11 +614,11 @@ function renderDocuments() {
   wrapper.querySelectorAll("[data-static]").forEach((button) => {
     button.addEventListener("click", () => {
       openSimplePdf({
-        title: `${button.dataset.static} piloto`,
-        subtitle: "Documento simulado",
-        filename: `${button.dataset.static}-piloto.pdf`
+        title: `${button.dataset.static} referencia`,
+        subtitle: "Documento de referencia",
+        filename: `${button.dataset.static}-referencia.pdf`
       });
-      showToast("Documento simulado descargado.");
+      showToast("Documento de referencia descargado.");
     });
   });
 
@@ -645,7 +645,7 @@ function renderProfile() {
           </select>
         </div>
         <div>
-          <label for="profile-password">Contraseña simulada</label>
+          <label for="profile-password">Contraseña ficticia</label>
           <input id="profile-password" type="password" placeholder="••••••" />
         </div>
         <div class="form-actions">
@@ -655,7 +655,7 @@ function renderProfile() {
       <div class="section card" style="background:#fff5f5;border:1px solid #e74c3c;">
         <h2>Restablecer datos</h2>
         <p>Elimina todos los datos guardados localmente (aportaciones, preferencias, documentos).</p>
-        <button class="button ghost" type="button" id="reset-piloto">Restablecer</button>
+        <button class="button ghost" type="button" id="reset-simulacion">Restablecer</button>
       </div>`
   );
 
@@ -670,7 +670,7 @@ function renderProfile() {
     wrapper.querySelector("#profile-password").value = "";
   });
 
-  wrapper.querySelector("#reset-piloto").addEventListener("click", () => {
+  wrapper.querySelector("#reset-simulacion").addEventListener("click", () => {
     resetPilotState();
     showToast("Datos reseteados. Inicia sesión de nuevo para continuar.");
     navigate("/empleado/acceso");

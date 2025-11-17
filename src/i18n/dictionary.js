@@ -5,9 +5,9 @@ export const translations = {
     en: "Home"
   },
   "public.home.hero.badge": {
-    es: "Piloto B2B2C · Nómina → Inversión",
-    ca: "Pilot B2B2C · Nòmina → Inversió",
-    en: "B2B2C Pilot · Payroll → Investment"
+    es: "Programa B2B2C · Nómina → Inversión",
+    ca: "Programa B2B2C · Nòmina → Inversió",
+    en: "B2B2C Program · Payroll → Investment"
   },
   "public.home.hero.title": {
     es: "Ahorro e inversión mensual para empleados",
@@ -45,9 +45,9 @@ export const translations = {
     en: "Technology platform for payroll investment plans."
   },
   "public.home.hero.highlights.clients.title": {
-    es: "Clientes piloto",
-    ca: "Clients pilot",
-    en: "Pilot clients"
+    es: "Clientes activos",
+    ca: "Clients actius",
+    en: "Active clients"
   },
   "public.home.hero.highlights.clients.value": {
     es: "2 empresas activas",
@@ -160,14 +160,14 @@ export const translations = {
     en: "banking, fund and payment integrations available."
   },
   "public.home.metrics.items.response": {
-    es: "tiempo de respuesta soporte piloto (SLA 8×5).",
-    ca: "temps de resposta del suport pilot (SLA 8×5).",
-    en: "pilot support response time (SLA 8×5)."
+    es: "tiempo de respuesta soporte especializado (SLA 8×5).",
+    ca: "temps de resposta del suport especialitzat (SLA 8×5).",
+    en: "specialist support response time (SLA 8×5)."
   },
   "public.home.metrics.items.golive": {
-    es: "desde kick-off a go-live del piloto (supuestos Paquete A).",
-    ca: "des de kick-off fins a go-live del pilot (supòsits Paquet A).",
-    en: "from kick-off to pilot go-live (Package A assumptions)."
+    es: "desde kick-off a go-live del programa (supuestos Paquete A).",
+    ca: "des de kick-off fins a go-live del programa (supòsits Paquet A).",
+    en: "from kick-off to program go-live (Package A assumptions)."
   },
   "public.how.metaTitle": {
     es: "Cómo funciona",
@@ -175,9 +175,9 @@ export const translations = {
     en: "How it works"
   },
   "public.plans.metaTitle": {
-    es: "Planes piloto",
-    ca: "Plans pilot",
-    en: "Pilot plans"
+    es: "Planes disponibles",
+    ca: "Plans disponibles",
+    en: "Available plans"
   },
   "public.security.metaTitle": {
     es: "Seguridad y cumplimiento",
@@ -220,9 +220,9 @@ export const translations = {
     en: "Frequently asked questions"
   },
   "public.faq.subtitle": {
-    es: "Respuestas breves a las dudas más comunes sobre el piloto de Invest Facility. Escríbenos si necesitas más detalle para tu comité o equipo.",
-    ca: "Respostes breus a les preguntes més habituals sobre el pilot d'Invest Facility. Escriu-nos si necessites més detall per al teu comitè o equip.",
-    en: "Short answers to the most common questions about Invest Facility's pilot. Let us know if you need more detail for your committee or team."
+    es: "Respuestas breves a las dudas más comunes sobre la experiencia de Invest Facility. Escríbenos si necesitas más detalle para tu comité o equipo.",
+    ca: "Respostes breus a les preguntes més habituals sobre l'experiència d'Invest Facility. Escriu-nos si necessites més detall per al teu comitè o equip.",
+    en: "Short answers to the most common questions about the Invest Facility experience. Let us know if you need more detail for your committee or team."
   },
   "public.faq.cta.prompt": {
     es: "¿No encuentras lo que buscas?",
@@ -305,9 +305,9 @@ export const translations = {
     en: "Yes. From the employee portal they can pause, resume or adjust the monthly amount. Every change is recorded and synced with the payroll file."
   },
   "public.faq.entries.7.question": {
-    es: "¿Qué soporte recibe la empresa durante el piloto?",
-    ca: "Quin suport rep l'empresa durant el pilot?",
-    en: "What support does the company receive during the pilot?"
+    es: "¿Qué soporte recibe la empresa durante el despliegue?",
+    ca: "Quin suport rep l'empresa durant el desplegament?",
+    en: "What support does the company receive during rollout?"
   },
   "public.faq.entries.7.answer": {
     es: "Dispones de un canal dedicado con SLA 8×5, comité quincenal y documentación viva (checklists, guías, manual de comunicación) compartida con RR. HH. y compliance.",
@@ -330,8 +330,8 @@ export const translations = {
     en: "What documentation do you provide for due diligence?"
   },
   "public.faq.entries.9.answer": {
-    es: "Facilitamos matriz RACI, políticas ISMS en progreso, evidencias de pruebas (SAST/DAST, pentest), flujos SEPA y plantillas de acuerdos tripartitos para validación interna.",
-    ca: "Facilitem matriu RACI, polítiques ISMS en progrés, evidències de proves (SAST/DAST, pentest), fluxos SEPA i plantilles d'acords tripartits per a la validació interna.",
+    es: "Facilitamos matriz RACI, políticas ISMS en progreso, evidencias de testeo (SAST/DAST, pentest), flujos SEPA y plantillas de acuerdos tripartitos para validación interna.",
+    ca: "Facilitem matriu RACI, polítiques ISMS en progrés, evidències de test (SAST/DAST, pentest), fluxos SEPA i plantilles d'acords tripartits per a la validació interna.",
     en: "We supply a RACI matrix, ISMS policies in progress, testing evidence (SAST/DAST, pentest), SEPA flows and tripartite agreement templates for internal validation."
   },
   "public.contact.heading": {
@@ -340,9 +340,9 @@ export const translations = {
     en: "Shall we talk?"
   },
   "public.contact.subtitle": {
-    es: "Envía tus datos y te contactaremos para activar el piloto. Este formulario es de muestra: los envíos se confirman con un toast.",
-    ca: "Envia'ns les teves dades i et contactarem per activar el pilot. Aquest formulari és de mostra: els enviaments es confirmen amb un avís emergent.",
-    en: "Send us your details and we'll get in touch to activate the pilot. This form is a demo: submissions are confirmed with a toast notification."
+    es: "Envía tus datos y te contactaremos para activar la experiencia. Este formulario es de muestra: los envíos se confirman con un toast.",
+    ca: "Envia'ns les teves dades i et contactarem per activar l'experiència. Aquest formulari és de mostra: els enviaments es confirmen amb un avís emergent.",
+    en: "Send us your details and we'll get in touch to activate the experience. This form is a sample: submissions are confirmed with a toast notification."
   },
   "public.contact.form.name.label": {
     es: "Nombre",

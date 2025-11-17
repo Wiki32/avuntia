@@ -13,7 +13,7 @@ import {
 const STAGES = [
   { id: "prospect", label: "Prospecto", description: "Detectado por ventas" },
   { id: "due-diligence", label: "Due diligence", description: "Legal/seguridad revisando" },
-  { id: "pilot", label: "Piloto activo", description: "Entorno de pruebas conectado" },
+  { id: "pilot", label: "Sandbox activo", description: "Entorno controlado conectado" },
   { id: "activo", label: "Producción", description: "OAuth desplegado" }
 ];
 
@@ -62,7 +62,7 @@ function buildLoginSection() {
       </span>
       <h1>Iniciar sesión en la consola OAuth</h1>
       <p class="subtitle">
-        Introduce la contraseña compartida del piloto para desbloquear la gestión de compañías conectadas a Invest Facility via
+        Introduce la contraseña compartida del sandbox para desbloquear la gestión de compañías conectadas a Invest Facility via
         OAuth.
       </p>
       <form id="oauth-login-form">
@@ -118,12 +118,12 @@ function buildSummarySection(metrics) {
   section.append(
     html`<span class="badge stack">
         Uso interno
-        <small>OAuth y pilotos B2B</small>
+        <small>OAuth y despliegues B2B</small>
       </span>
       <h1>Consola de empresas conectadas</h1>
       <p class="subtitle">
         Registra nuevas compañías, controla sus etapas de due diligence y supervisa el potencial mensual agregado del
-        piloto.
+        programa.
       </p>
       <div
         class="grid"
@@ -134,7 +134,7 @@ function buildSummarySection(metrics) {
         ${buildStatCard("Headcount cubierto", formatNumber(metrics.totalHeadcount))}
         ${buildStatCard("Adopción media", formatPercent(metrics.avgAdoption || 0))}
         ${buildStatCard("Ticket medio", formatCurrency(metrics.avgTicket || 0))}
-        ${buildStatCard("Listas para piloto", `${metrics.readyForPilot}/${formatNumber(metrics.totalCompanies)}`)}
+        ${buildStatCard("Listas para despliegue", `${metrics.readyForPilot}/${formatNumber(metrics.totalCompanies)}`)}
       </div>
       <div class="grid two">
         <div class="card">
@@ -160,7 +160,7 @@ function buildRegistrationSection() {
   section.append(
     html`<h2>Registrar nueva empresa</h2>
       <p class="subtitle">
-        Completa la ficha para generar credenciales OAuth simuladas y añadirla al pipeline. El cálculo de contribución se
+        Completa la ficha para generar credenciales OAuth de referencia y añadirla al pipeline. El cálculo de contribución se
         estima a partir del headcount, la adopción esperada y el ticket medio mensual.
       </p>
       <form id="oauth-company-form" autocomplete="off">
@@ -213,7 +213,7 @@ function buildRegistrationSection() {
         <div>
           <label for="company-notes">Notas internas</label>
           <textarea id="company-notes" name="notes" rows="3" placeholder="Enlace al checklist, riesgos detectados..."></textarea>
-          <p class="helper-text">La información se almacena en localStorage para efectos de demo.</p>
+          <p class="helper-text">La información se almacena en localStorage para efectos de muestra.</p>
         </div>
         <div class="form-actions">
           <button class="button ghost small" type="reset">Limpiar</button>
@@ -358,7 +358,8 @@ function buildSessionBanner(session) {
         <span class="badge">${badge}</span>
         <h2>Panel interno Invest Facility</h2>
         <p class="subtitle">
-          Estás autenticado para gestionar compañías y sus credenciales OAuth simuladas dentro del piloto.
+          Estás autenticado para gestionar compañías y sus credenciales OAuth de referencia dentro de este entorno
+          controlado.
         </p>
       </div>
       <div class="table-actions" style="justify-content:flex-end;">

@@ -58,7 +58,7 @@ function renderLogin() {
         <div>
           <label for="login-remember">
             <input id="login-remember" type="checkbox" checked />
-            Recordar sesión en este piloto
+            Recordar sesión en esta simulación
           </label>
         </div>
         <div class="form-actions">
@@ -99,8 +99,8 @@ function renderDashboard() {
   wrapper.append(
     html`<h1>Panel de control</h1>
       <p class="subtitle">
-        Resumen operativo del piloto. Los datos proceden de semillas de prueba y se recalculan en cliente con las
-        acciones realizadas.
+        Resumen operativo del entorno controlado. Los datos proceden de semillas sintéticas y se recalculan en cliente
+        con las acciones realizadas.
       </p>
       <div class="grid two">
         <div class="card">
@@ -124,7 +124,7 @@ function renderDashboard() {
             </div>
             <div>
               <strong>${employees.length}</strong>
-              <p>Total empleados simulados</p>
+              <p>Total empleados ficticios</p>
             </div>
             <div>
               <strong>${incidents}</strong>
@@ -162,7 +162,7 @@ function renderDashboard() {
                 )
                 .join("")}
             </ul>`
-              : "<p>No hay aportaciones activas en este piloto.</p>"
+              : "<p>No hay aportaciones activas en esta simulación.</p>"
           }
         </div>
       </div>
@@ -195,7 +195,7 @@ function renderDashboard() {
                 }" required />
               </div>
             </div>
-            <p class="helper-text">El alta se registra como estado activo con KYC/MiFID pendientes (simulado).</p>
+            <p class="helper-text">El alta se registra como estado activo con KYC/MiFID pendientes en modo muestra.</p>
             <div class="form-actions" style="justify-content:flex-start;">
               <button class="button small" type="submit">Añadir empleado</button>
             </div>
@@ -242,7 +242,7 @@ function renderDashboard() {
                         </tr>`;
                         })
                         .join("")
-                    : `<tr><td colspan="5">No hay empleados en el piloto todavía.</td></tr>`
+                    : `<tr><td colspan="5">No hay empleados en la simulación todavía.</td></tr>`
                 }
               </tbody>
             </table>
@@ -348,7 +348,7 @@ function renderEmployeesList() {
   const plansMap = new Map(state.plans.map((plan) => [plan.id, plan]));
   const container = createEl("section", { className: "card" });
   container.append(
-    html`<h1>Empleados del piloto</h1>
+    html`<h1>Empleados del entorno controlado</h1>
       <div class="layout-split">
         <div class="card">
           <form id="filters" class="grid two" style="grid-template-columns:repeat(auto-fit,minmax(180px,1fr));">
@@ -376,7 +376,7 @@ function renderEmployeesList() {
         <div class="card">
           <p><strong>Acciones rápidas</strong></p>
           <div class="hero-actions" style="gap:0.5rem;">
-            <a class="button small" href="/empresa/empleados/import" data-link>Importar CSV piloto</a>
+            <a class="button small" href="/empresa/empleados/import" data-link>Importar CSV de muestra</a>
             <a class="button ghost small" href="/empresa/reglas" data-link>Editar reglas</a>
           </div>
         </div>
@@ -522,9 +522,9 @@ function renderEmployeeDetail({ params }) {
             MiFID: ${formatMifidStatus(employee.mifidStatus)}
           </p>
           <div class="form-actions" style="justify-content:flex-start;">
-            <button class="button ghost small" data-action="switch">Cambiar plan simulado</button>
+            <button class="button ghost small" data-action="switch">Cambiar plan de referencia</button>
             <button class="button ghost small" data-action="pause">
-              ${employee.status === "active" ? "Pausar aportación simulada" : "Reanudar aportación simulada"}
+              ${employee.status === "active" ? "Pausar aportación ficticia" : "Reanudar aportación ficticia"}
             </button>
           </div>
         </div>
@@ -595,7 +595,7 @@ function renderNotFoundEmployee(id) {
   const card = createEl("section", { className: "card" });
   card.append(
     html`<h1>Empleado no encontrado</h1>
-      <p>No existe ningún empleado con el identificador <code>${id}</code> en el piloto.</p>
+      <p>No existe ningún empleado con el identificador <code>${id}</code> en esta simulación.</p>
       <a class="button" href="/empresa/empleados" data-link>Volver al listado</a>`
   );
   return card;
@@ -606,7 +606,7 @@ function renderEmployeesImport() {
   setPageTitle("Importar empleados");
   const wrapper = createEl("section", { className: "card" });
   wrapper.append(
-    html`<h1>Importación CSV piloto</h1>
+    html`<h1>Importación CSV de ejemplo</h1>
       <p class="subtitle">
         Arrastra un CSV con columnas <code>name,email,amount,plan</code>. El plan debe coincidir con los IDs de los
         planes definidos (CONS/CREC). Los datos se almacenan en memoria/localStorage, sin llamadas a red.
@@ -676,7 +676,7 @@ function renderEmployeesImport() {
             </table>
           </div>
           <div class="form-actions">
-            <button class="button" data-action="import">Importar (piloto)</button>
+            <button class="button" data-action="import">Importar (muestra)</button>
           </div>
         </div>`;
         preview.append(table);
@@ -736,7 +736,7 @@ function renderRules() {
           </div>
         </div>
         <fieldset>
-          <legend>Notificaciones simuladas</legend>
+          <legend>Notificaciones de ejemplo</legend>
           <label>
             <input type="checkbox" id="notif-payments" ${settings.notifications.payments ? "checked" : ""} />
             Pagos reconciliados
@@ -805,7 +805,7 @@ function renderGeneratePayments() {
     html`<h1>Generar fichero pain.001</h1>
       <p class="subtitle">
         Se incluye a los empleados activos según la aportación configurada. El fichero se genera en cliente y se
-        descarga sin salir del piloto.
+        descarga sin salir de la simulación.
       </p>
       <form id="pain-form">
         <div class="form-row">
@@ -836,7 +836,7 @@ function renderGeneratePayments() {
       employees,
       executionDate: date
     });
-    const filename = `pain001-piloto-${date.replace(/-/g, "").slice(0, 6)}.xml`;
+    const filename = `pain001-muestra-${date.replace(/-/g, "").slice(0, 6)}.xml`;
     downloadFile({ filename, content: xml, type: "application/xml" });
     showToast(`Fichero ${filename} generado en modo simulación.`);
   });
@@ -948,7 +948,7 @@ function renderReports() {
   if (!ensureSession()) return renderLogin();
   const state = getState();
   const plansMap = new Map(state.plans.map((plan) => [plan.id, plan]));
-  setPageTitle("Informes piloto");
+  setPageTitle("Informes de referencia");
   const aggregated = aggregateByPlan(
     state.employees.filter((emp) => emp.status === "active"),
     state.plans
@@ -987,7 +987,7 @@ function renderReports() {
             </tr>`
                     )
                     .join("")
-                : `<tr><td colspan="4">No hay aportaciones activas en este piloto.</td></tr>`
+                : `<tr><td colspan="4">No hay aportaciones activas en esta simulación.</td></tr>`
             }
           </tbody>
         </table>
@@ -1007,7 +1007,7 @@ function renderReports() {
         </ul>
       </div>
       <div class="form-actions">
-        <button class="button" type="button" id="export-csv">Exportar CSV piloto</button>
+        <button class="button" type="button" id="export-csv">Exportar CSV de muestra</button>
       </div>`
   );
 
@@ -1019,7 +1019,7 @@ function renderReports() {
       )
     );
     downloadFile({
-      filename: "informe-piloto.csv",
+      filename: "informe-referencia.csv",
       content: csv.join("\n"),
       type: "text/csv"
     });
@@ -1036,7 +1036,7 @@ function renderSettings() {
   setPageTitle("Ajustes empresa");
   const wrapper = createEl("section", { className: "card", style: "max-width:640px;margin:auto;" });
   wrapper.append(
-    html`<h1>Ajustes piloto</h1>
+    html`<h1>Ajustes de la simulación</h1>
       <form id="settings-form">
         <div>
           <label for="company-name">Nombre visible</label>
@@ -1097,7 +1097,7 @@ function renderSupport() {
   setPageTitle("Soporte");
   const wrapper = createEl("section", { className: "card", style: "max-width:520px;margin:auto;" });
   wrapper.append(
-    html`<h1>Crear ticket piloto</h1>
+    html`<h1>Crear ticket interno</h1>
       <form id="support-form">
         <div>
           <label for="support-topic">Tema</label>
